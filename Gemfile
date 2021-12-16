@@ -47,5 +47,5 @@ group :test do
   gem 'rspec-json_expectations'
   gem 'shoulda-matchers', '~> 4.0'
 end
-
+gem 'activerecord-reset-pk-sequence'
 gem "active_model_serializers", "~> 0.10.12"
