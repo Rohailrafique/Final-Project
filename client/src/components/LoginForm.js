@@ -38,12 +38,14 @@ function LoginForm({ setUser }) {
         name="username"
         value={loginFormInfo.username}
         onChange={handleLoginChange}
+        required
       />
       <input
         type="password"
         name="password"
         value={loginFormInfo.password}
         onChange={handleLoginChange}
+        required
       />
       <button type="submit">Login</button>
     </form>

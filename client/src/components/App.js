@@ -4,15 +4,11 @@ import TopNav from "./TopNav";
 import { Routes, Route } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import Listings from "./Listings";
+import SignupPage from "./SignupPage";
 
 function App() {
-  const [thumbnailClicked, setThumbnailClicked] = useState(false);
   const [user, setUser] = useState("");
-
-  function handleAvatarClick() {
-    setThumbnailClicked(!thumbnailClicked);
-  }
-
+  
   useEffect(() => {
     fetch("/me")
       .then((r) => r.json())
@@ -35,18 +31,16 @@ function App() {
   return (
     <>
       <TopNav
-        handleAvatarClick={handleAvatarClick}
         user={user}
         handleLogout={handleLogout}
-        thumbnailClicked={thumbnailClicked}
       />
       <Routes>
         <Route
           exact path="login"
           element={<LoginForm setUser={setUser} />}
         ></Route>
-        <Route exact path="/" element={<Listings />}></Route>
-        <Route exact path="signup" element={<SignupPage user={user}/>}></Route>
+        <Route exact path="/" element={<Listings user={user}/>}></Route>
+        <Route exact path="signup" element={<SignupPage setUser={setUser} user={user}/>}></Route>
       </Routes>
     </>
   );

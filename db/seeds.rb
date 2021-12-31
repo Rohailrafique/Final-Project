@@ -39,6 +39,11 @@ coat = Item.create(name: "coat", image: "testing", description: "cool coat", pri
 long_coat = Item.create(name: "coat", image: "testing", description: "vintage coat", price: 30.50, seller_id: saim.id)
 sweater = Item.create(name: "sweater", image: "testing", description: "warm", price: 27.50, seller_id: tyler.id)
 pant = Item.create(name: "pant", image: "testing", description: "tapered trouser", price: 5.25, seller_id: saim.id)
+pant = Item.create(name: "pant", image: "testing", description: "tapered trouser", price: 5.25, seller_id: saim.id)
+pant = Item.create(name: "pant", image: "testing", description: "tapered trouser", price: 5.25, seller_id: saim.id)
+pant = Item.create(name: "pant", image: "testing", description: "tapered trouser", price: 5.25, seller_id: saim.id)
+pant = Item.create(name: "pant", image: "testing", description: "tapered trouser", price: 5.25, seller_id: saim.id)
+pant = Item.create(name: "pant", image: "testing", description: "tapered trouser", price: 5.25, seller_id: saim.id)
 puts "test"
 # Creating category_items
 CategoryItem.create(item_id: tshirt.id, category_id: shirts.id)

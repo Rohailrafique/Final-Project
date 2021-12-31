@@ -14,7 +14,7 @@ import { Avatar } from "@mui/material";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 
-function TopNav({ handleAvatarClick, user, setUser, thumbnailClicked, handleLogout}) {
+function TopNav({user, setUser, handleLogout}) {
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -74,7 +74,7 @@ function TopNav({ handleAvatarClick, user, setUser, thumbnailClicked, handleLogo
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Search items…"
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
@@ -98,11 +98,10 @@ function TopNav({ handleAvatarClick, user, setUser, thumbnailClicked, handleLogo
               {user.username ? <Button id="logout-button" onClick={handleLogout}>
                Logout
              </Button> :
-                <Link to="login"> <Button id="login-button">Login</Button></Link>}
-
+               <><Link to="login"> <Button id="login-button">Login</Button></Link> 
+                <Link to="signup"> <Button id="signup-button">Signup</Button></Link> </> }
             <Avatar
-              src="https://www.looper.com/img/gallery/the-best-anime-to-watch-if-youre-an-anime-newbie/l-intro-1633148302.jpg"
-              onClick={handleAvatarClick}
+              src={user.picture}
             />
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>

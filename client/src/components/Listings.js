@@ -1,18 +1,21 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
+import ListingCard from './ListingCard'
 
-function Listings() {
+function Listings({user}) {
     const [listings, setListings] = useState([])
 
-    // useEffect(() => {
-    //     fetch("/items")
-    //     .then((res) => res.json())
-    //     .then((data) => console.log(data))
-    // })
+    useEffect(() => {
+        fetch("/items")
+        .then(response => response.json())
+        .then((data) => setListings(data))
+    }, [])
 
     return (
         <div>
-            HELLO
+            {listings.map((listing) => {
+                return <ListingCard user={user} listing={listing}/>
+            })}
         </div>
     )
 }
