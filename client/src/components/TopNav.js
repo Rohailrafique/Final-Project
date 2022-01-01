@@ -13,8 +13,11 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { Avatar } from "@mui/material";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function TopNav({user, setUser, handleLogout}) {
+  const navigate = useNavigate();
+
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -55,7 +58,9 @@ function TopNav({user, setUser, handleLogout}) {
     },
   }));
 
-  
+  function handleClick(){
+    navigate('/')
+  }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -67,7 +72,7 @@ function TopNav({user, setUser, handleLogout}) {
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            Final Project
+            <button onClick={handleClick}>Final Project</button>
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -80,29 +85,15 @@ function TopNav({user, setUser, handleLogout}) {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            ></IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            
+              {user.username ? <p>Welcome, {user.username}!</p> : null}
+               <Avatar
+                 src={user.picture}
+               />
               {user.username ? <Button id="logout-button" onClick={handleLogout}>
                Logout
              </Button> :
                <><Link to="login"> <Button id="login-button">Login</Button></Link> 
                 <Link to="signup"> <Button id="signup-button">Signup</Button></Link> </> }
-            <Avatar
-              src={user.picture}
-            />
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton

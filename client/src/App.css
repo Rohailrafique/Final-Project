@@ -1,21 +1,35 @@
-#login-button{
-    color: rgb(0, 0, 0);
+#login-button {
+  color: rgb(0, 0, 0);
 }
 
-#logout-button{
-    color: rgb(0, 0, 0);
+#signup-form-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
 }
 
-#signup-button{
-    color: rgb(0, 0, 0);
+#login-form-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
 }
 
-#listing-card{
-    height: 100% ;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   margin-top: 10px;
-   margin-right: 10px;
-   margin-left: 5px;
+#logout-button {
+  color: rgb(0, 0, 0);
+}
+
+#signup-button {
+  color: rgb(0, 0, 0);
+}
+
+#listing-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 5px;
 }

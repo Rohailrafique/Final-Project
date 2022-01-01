@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 function LoginForm({ setUser }) {
   const navigate = useNavigate();
@@ -32,24 +34,23 @@ function LoginForm({ setUser }) {
     setLoginFormInfo({ ...loginFormInfo, [e.target.name]: e.target.value });
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="username"
-        value={loginFormInfo.username}
-        onChange={handleLoginChange}
-        required
-      />
-      <input
-        type="password"
-        name="password"
-        value={loginFormInfo.password}
-        onChange={handleLoginChange}
-        required
-      />
-      <button type="submit">Login</button>
-    </form>
+    <Box 
+      id="login-form-box"
+      onSubmit={handleSubmit}
+      component="form"
+      sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <TextField id="outlined-basic" label="username" type="text" name="username" value={loginFormInfo.username} onChange={handleLoginChange}required variant="outlined" />
+      <TextField id="outlined-basic" label="password" type="password" name="password" value={loginFormInfo.password} onChange={handleLoginChange}required variant="outlined" />
+      <button id="login-info-button" type="submit">Login</button>
+    </Box>
+    
   );
 }
 
 export default LoginForm;
+
