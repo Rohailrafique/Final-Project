@@ -15,8 +15,6 @@ import { useNavigate } from "react-router-dom";
 
 function TopNav({user, setUser,handleLogout, handleSearch, listings}) {
   const navigate = useNavigate();
-  
-  console.log(listings)
 
   const Search = styled("div")(({ theme }) => ({
     position: "relative",

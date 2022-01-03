@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import Listings from "./Listings";
 import SignupPage from "./SignupPage";
+import SelectedItem from "./SelectedItem";
 
 function App() {
   const [user, setUser] = useState("");
@@ -62,6 +63,7 @@ function App() {
         ></Route>
         <Route exact path="/" element={<Listings listings={searchedData} user={user}/>}></Route>
         <Route exact path="signup" element={<SignupPage setUser={setUser} user={user}/>}></Route>
+        <Route exact path="selected-item" element={<SelectedItem user={user} listings={searchedData}/>}></Route>
       </Routes>
     </>
   );
