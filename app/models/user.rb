@@ -6,7 +6,9 @@ class User < ApplicationRecord
     has_many :purchased_categories, through: :purchased_items, source: :categories 
     has_many :sold_categories, through: :sold_items, source: :categories 
 
-    validates :username, presence: true, uniqueness: true
-    validates :email, presence: true, uniqueness: true
+    validates :username, presence: true
+    validates :username, uniqueness: true
+    validates :email, presence: true
+    validates :email, uniqueness: true
 
 end

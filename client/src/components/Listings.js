@@ -2,19 +2,13 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import ListingCard from './ListingCard'
 
-function Listings({user}) {
-    const [listings, setListings] = useState([])
-
-    useEffect(() => {
-        fetch("/items")
-        .then(response => response.json())
-        .then((data) => setListings(data))
-    }, [])
-
+function Listings({user, listings}) {
+    
+   
     return (
-        <div>
+        <div id="card-container">
             {listings.map((listing) => {
-                return <ListingCard user={user} listing={listing}/>
+                return <ListingCard images={listing.images.map(image => image.url)} user={user} listing={listing}/>
             })}
         </div>
     )

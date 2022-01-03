@@ -6,30 +6,29 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-function ListingCard({listing, user}) {
-    return (
-      <Card id="listing-card" sx={{ maxWidth: 345 }}>
-       <CardMedia
-         component="img"
-         height="140"
-         image={listing.image}
-         alt="green iguana"
-        //  src={listing.image}
-       />
-       <CardContent>
-         <Typography gutterBottom variant="h5" component="div">
-           {listing.name}
-         </Typography>
-         <Typography variant="body2" color="text.secondary">
-           {listing.description}
-         </Typography>
-       </CardContent>
-       { user.username ? <CardActions>
-      <Button size="small">Send offer for purchase</Button>    
-        </CardActions> : null}
-     </Card>
-    )
+function ListingCard({listing, user, images}) {
+  return (
+    
+    <Card id="listing-card" sx={{ maxWidth: 345 }}>
+     <CardMedia 
+       component="img"
+       height="140"
+       image={images}
+       alt="no pictures added"
+     />
+     <CardContent>
+       <Typography gutterBottom variant="h5" component="div">
+         {listing.name}
+       </Typography>
+       <Typography variant="body2" color="text.secondary">
+         {listing.description}
+       </Typography>
+     </CardContent>
+     { user.username ? <CardActions>
+    <Button size="small">Send offer for purchase</Button>    
+      </CardActions> : null}
+   </Card>
+  )
 }
 
 export default ListingCard;
-

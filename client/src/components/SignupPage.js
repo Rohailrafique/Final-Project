@@ -50,7 +50,7 @@ function SignupPage({ setUser, user }) {
         '& > :not(style)': { m: 1, width: '25ch' },
       }}
       noValidate
-      autoComplete="off"
+      autoComplete="on"
     >
       <TextField id="outlined-basic" label="username" type="text" name="username" value={newUserInfo.username} onChange={handleSignupChange} required variant="outlined" />
       <TextField id="outlined-basic" label="password" type="password" name="password" value={newUserInfo.password} onChange={handleSignupChange} required variant="outlined" />

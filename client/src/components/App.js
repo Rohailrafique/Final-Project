@@ -8,7 +8,15 @@ import SignupPage from "./SignupPage";
 
 function App() {
   const [user, setUser] = useState("");
-  
+  const [listings, setListings] = useState([])
+  const [searchedData, setSearchedData] = useState(listings)
+
+  useEffect(() => {
+       fetch("/items")
+      .then(response => response.json())
+      .then((data) => setListings(data))
+  }, [])
+
   useEffect(() => {
     fetch("/me")
       .then((r) => r.json())
@@ -27,19 +35,32 @@ function App() {
       }
     });
   }
+  useEffect(() => {
+    setSearchedData(listings)
+  }, [listings])
 
+
+    function handleSearch(e){
+     const filteredData = listings.filter((item) => {
+              return item.name.toLowerCase().includes(e.target.value.toLowerCase())
+            })
+            setSearchedData(filteredData)
+    }
   return (
     <>
       <TopNav
         user={user}
         handleLogout={handleLogout}
+        setListings={setListings}
+        listings={listings}
+        handleSearch={handleSearch}
       />
       <Routes>
         <Route
           exact path="login"
           element={<LoginForm setUser={setUser} />}
         ></Route>
-        <Route exact path="/" element={<Listings user={user}/>}></Route>
+        <Route exact path="/" element={<Listings listings={searchedData} user={user}/>}></Route>
         <Route exact path="signup" element={<SignupPage setUser={setUser} user={user}/>}></Route>
       </Routes>
     </>

@@ -6,17 +6,17 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
-import Badge from "@mui/material/Badge";
 import SearchIcon from "@mui/icons-material/Search";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { Avatar } from "@mui/material";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function TopNav({user, setUser, handleLogout}) {
+function TopNav({user, setUser,handleLogout, handleSearch, listings}) {
   const navigate = useNavigate();
+  
+  console.log(listings)
 
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
@@ -44,26 +44,15 @@ function TopNav({user, setUser, handleLogout}) {
     justifyContent: "center",
   }));
 
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: "inherit",
-    "& .MuiInputBase-input": {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create("width"),
-      width: "100%",
-      [theme.breakpoints.up("md")]: {
-        width: "20ch",
-      },
-    },
-  }));
 
   function handleClick(){
     navigate('/')
   }
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <div>
+   <div>
+      <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
           <Typography
@@ -72,28 +61,27 @@ function TopNav({user, setUser, handleLogout}) {
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            <button onClick={handleClick}>Final Project</button>
+            <h3 onClick={handleClick}>Final Project</h3>
           </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search items…"
-              inputProps={{ "aria-label": "search" }}
+          <form>
+            <input 
+                placeholder="Search items"
+                // inputProps={{ "aria-label": "search" }}
+              onChange={handleSearch}
             />
-          </Search>
+    </form>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              {user.username ? <p>Welcome, {user.username}!</p> : null}
-               <Avatar
-                 src={user.picture}
-               />
+              {user.username ? <p>Welcome, {user.username}! |</p> : null}
+               
               {user.username ? <Button id="logout-button" onClick={handleLogout}>
                Logout
              </Button> :
                <><Link to="login"> <Button id="login-button">Login</Button></Link> 
                 <Link to="signup"> <Button id="signup-button">Signup</Button></Link> </> }
+                {user.username ? <Avatar
+                 src={user.picture}
+               /> : null}
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -108,6 +96,12 @@ function TopNav({user, setUser, handleLogout}) {
         </Toolbar>
       </AppBar>
     </Box>
+
+    </div>
+    <div>
+   
+    </div>
+    </div>
   );
 }
 

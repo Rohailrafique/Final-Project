@@ -9,6 +9,10 @@
   height: 25vh;
 }
 
+#card-pic{
+  height: 30px;
+}
+
 #login-form-box {
   display: flex;
   justify-content: center;
@@ -32,4 +36,28 @@
   margin-top: 10px;
   margin-right: 10px;
   margin-left: 5px;
+}
+
+/* #card-container{
+    display: flex;
+    margin-right: 10px;
+    margin-left: 50px;
+    margin-top: 40px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-bottom: 10px;
+    min-width: 365px;
+    padding: 6px;
+} */
+
+#listing-card{
+  float: left;
+  margin-right: 10px;
+  margin-left: 50px;
+  margin-top: 40px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-bottom: 10px;
+  min-width: 365px;
+  padding: 6px;
 }
