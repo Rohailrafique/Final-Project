@@ -3,4 +3,5 @@ class ItemSerializer < ActiveModel::Serializer
   has_one :seller
   has_one :buyer
   has_many :images
+  has_many :categories
 end

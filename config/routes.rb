@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
 
-  resources :images, only: [:index]
+  resources :images
   resources :categories
   resources :items
   resources :users

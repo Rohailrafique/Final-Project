@@ -25,7 +25,7 @@ function SignupPage({ setUser, user }) {
             username: newUserInfo.username,
             email: newUserInfo.email,
             password: newUserInfo.password,
-            gender: newUserInfo.gender,
+            // gender: newUserInfo.gender,
             picture: newUserInfo.picture,
         })
     })
@@ -42,6 +42,8 @@ function SignupPage({ setUser, user }) {
   }
 
   return (
+    <>
+   <h3 id="signup-title">Enter your details to register</h3>
     <Box 
       id="signup-form-box"
       onSubmit={handleSubmit}
@@ -55,10 +57,11 @@ function SignupPage({ setUser, user }) {
       <TextField id="outlined-basic" label="username" type="text" name="username" value={newUserInfo.username} onChange={handleSignupChange} required variant="outlined" />
       <TextField id="outlined-basic" label="password" type="password" name="password" value={newUserInfo.password} onChange={handleSignupChange} required variant="outlined" />
       <TextField id="outlined-basic" label="email" type="text" name="email" value={newUserInfo.email} onChange={handleSignupChange} required variant="outlined" />
-      <TextField id="outlined-basic" label="gender" type="text" name="gender" value={newUserInfo.gender} onChange={handleSignupChange} variant="outlined" />
+      {/* <TextField id="outlined-basic" label="gender" type="text" name="gender" value={newUserInfo.gender} onChange={handleSignupChange} variant="outlined" /> */}
       <TextField id="outlined-basic" label="picture url" type="text" name="picture" value={newUserInfo.picture} onChange={handleSignupChange} variant="outlined" />
       <button type="submit">Signup</button>
     </Box>
+    </>
   );
 }
 

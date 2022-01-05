@@ -30,13 +30,13 @@ jackets = Category.create(name: "jackets")
 trousers = Category.create(name: "pants")
 
 # Creating items
-tshirt = Item.create(name: "t-shirt", description: "Crew-neck T-shirt in soft cotton jersey with a printed graphic design at front.", price: 10.00, seller_id: rohail.id)
-coat = Item.create(name: "grey coat", description: "Single-breasted coat in a felted wool blend. Notched lapels, buttons at front, and decorative buttons at cuffs. Diagonal welt side pockets and two inner pockets. Vent at back. Lined.", price: 95.00, seller_id: rohail.id)
+tshirt = Item.create(name: "t-shirt", description: "Crew-neck T-shirt in soft cotton jersey with a printed graphic design at front.Relaxed-fit hooded jacket in soft faux shearling. Drawstring hood, zipper at front, and front pockets. Wide ribbing at cuffs and hem.Relaxed-fit hooded jacket in soft faux shearling. Drawstring hood, zipper at front,Relaxed-fit hooded jacket in soft faux shearling. Drawstring hood, zipper at front, and front pockets. Wide ribbing at cuffs and hem.Relaxed-fit hooded jacket in soft faux shearling.", price: 10.00, seller_id: rohail.id)
+coat = Item.create(name: "grey coat", description: "Single-breasted coat in a felted wool blend. Notched lapels, buttons at front, and decorative buttons at cuffs.", price: 95.00, seller_id: rohail.id)
 long_coat = Item.create(name: "black coat", description: "Single-breasted coat in felted fabric with wool content. Funnel-neck collar, front pockets with flap, and an inner pocket. Decorative buttons.", price: 50, seller_id: saim.id)
-parka = Item.create(name: "sweater", description: "Relaxed-fit hooded jacket in soft faux shearling. Drawstring hood, zipper at front, and front pockets. Wide ribbing at cuffs and hem.", price: 150, seller_id: tyler.id)
+parka = Item.create(name: "sweater", description: "Relaxed-fit hooded jacket in soft faux shearling. Drawstring hood, zipper at front, and front pockets. Wide ribbing at cuffs and hem.Relaxed-fit hooded jacket in soft faux shearling. Drawstring hood, zipper at front,Relaxed-fit hooded jacket in soft faux shearling. Drawstring hood, zipper at front, and front pockets. Wide ribbing at cuffs and hem.Relaxed-fit hooded jacket in soft faux shearling.", price: 150, seller_id: tyler.id)
 joggers = Item.create(name: "slim joggers",  description: "Regular-fit sweatpant joggers in cotton-blend fabric with soft, brushed inside. Drawstring and covered elastic at waistband, side-seam pockets, ribbed hems.", price: 20, seller_id: saim.id)
-pants = Item.create(name: "pants", description: "tapered trouser", price: 50, seller_id: saim.id)
-chinos = Item.create(name: "brown chinos", description: "casual chinos in good condition", price: 25, seller_id: saim.id)
+pants = Item.create(name: "pants", description: "tapered trouser. Wide ribbing at cuffs and hem.Relaxed-fit", price: 50, seller_id: saim.id)
+chinos = Item.create(name: "brown chinos", description: "casual chinos in good condition. Wide ribbing at cuffs and hem.Relaxed-fit", price: 25, seller_id: saim.id)
 
 puts "test"
 # Creating category_items
@@ -62,4 +62,6 @@ Image.create(name: "pants", item_id: pants.id, url: "https://static.zara.net/pho
 Image.create(name: "pants", item_id: pants.id, url: "https://static.zara.net/photos///2021/I/0/2/p/0706/382/704/2/w/1126/0706382704_6_3_1.jpg?ts=1632239309925")
 Image.create(name: "chinos", item_id: chinos.id, url: "https://static.zara.net/photos///2021/I/0/2/p/6917/350/710/2/w/1126/6917350710_6_1_1.jpg?ts=1624441292860")
 Image.create(name: "coat", item_id: coat.id, url: "https://static.zara.net/photos///2021/I/0/2/p/1564/501/807/2/w/1126/1564501807_6_1_1.jpg?ts=1631611050282")
+
+
 

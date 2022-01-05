@@ -34,6 +34,8 @@ function LoginForm({ setUser }) {
     setLoginFormInfo({ ...loginFormInfo, [e.target.name]: e.target.value });
   }
   return (
+    <>
+    <h3 id="login-title">Enter your username and password to sign in</h3>
     <Box 
       id="login-form-box"
       onSubmit={handleSubmit}
@@ -48,6 +50,7 @@ function LoginForm({ setUser }) {
       <TextField id="outlined-basic" label="password" type="password" name="password" value={loginFormInfo.password} onChange={handleLoginChange}required variant="outlined" />
       <button id="login-info-button" type="submit">Login</button>
     </Box>
+    </>
     
   );
 }

@@ -1,22 +1,36 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
 import TopNav from "./TopNav";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation} from "react-router-dom";
 import LoginForm from "./LoginForm";
 import Listings from "./Listings";
 import SignupPage from "./SignupPage";
 import SelectedItem from "./SelectedItem";
+import AddItemForm from "./AddItemForm";
+import EditItem from "./EditItem";
+
 
 function App() {
   const [user, setUser] = useState("");
   const [listings, setListings] = useState([])
   const [searchedData, setSearchedData] = useState(listings)
+  const location = useLocation()
+  const [DOMUpdater, setDOMUpdater] = useState(0)
 
   useEffect(() => {
        fetch("/items")
       .then(response => response.json())
       .then((data) => setListings(data))
-  }, [])
+  }, [DOMUpdater])
+
+  // useEffect(() => {
+  //   if (location.pathname.includes("items")) {
+  //     fetch(`${location.pathname}`)
+  //       .then(res => res.json())
+  //       .then(data => setSearchedData(data))
+  //       // .then(console.log("new fetch "))
+  //   }
+  // }, [location.pathname, DOMUpdater])
 
   useEffect(() => {
     fetch("/me")
@@ -61,9 +75,10 @@ function App() {
           exact path="login"
           element={<LoginForm setUser={setUser} />}
         ></Route>
-        <Route exact path="/" element={<Listings listings={searchedData} user={user}/>}></Route>
+        <Route exact path="/" element={<Listings setDOMUpdater={setDOMUpdater} setListings={setSearchedData} listings={searchedData} user={user}/>}></Route>
         <Route exact path="signup" element={<SignupPage setUser={setUser} user={user}/>}></Route>
         <Route exact path="selected-item" element={<SelectedItem user={user} listings={searchedData}/>}></Route>
+        <Route exact path="add-item" element={<AddItemForm listings={searchedData} user={user}/>}></Route>
       </Routes>
     </>
   );

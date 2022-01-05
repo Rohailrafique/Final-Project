@@ -1,5 +1,5 @@
 #login-button {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 #signup-form-box {
@@ -20,12 +20,30 @@
   height: 25vh;
 }
 
+#login-title{
+ text-align: center;
+ margin-top: 125px;
+}
+
+#signup-title{
+  text-align: center;
+  margin-top: 125px;
+ }
+
+#title{
+  font-size: 30px;
+  cursor: pointer;
+}
+
+
 #logout-button {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  margin-left: 20px;
 }
 
 #signup-button {
-  color: rgb(0, 0, 0);
+  color: rgb(253, 253, 253);
 }
 
 #listing-card {
@@ -38,17 +56,9 @@
   margin-left: 5px;
 }
 
-/* #card-container{
-    display: flex;
-    margin-right: 10px;
-    margin-left: 50px;
-    margin-top: 40px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    margin-bottom: 10px;
-    min-width: 365px;
-    padding: 6px;
-} */
+#welcome{
+  font-size: 15px;
+}
 
 #listing-card{
   float: left;
@@ -59,5 +69,28 @@
   overflow-x: hidden;
   margin-bottom: 10px;
   min-width: 365px;
+  max-height: 365px;
+  min-height: 365px;
   padding: 6px;
+}
+
+#nav-box{
+  background-color: rgb(3, 3, 3);
+}
+
+#search-field{
+  margin-left: 50px;
+}
+
+#add-button{
+  margin-top: 20px;
+}
+
+#add-item-form{
+  border-top: cornsilk;
+}
+
+#add-item-header{
+  border-bottom: black solid;
+  align-items: center
 }

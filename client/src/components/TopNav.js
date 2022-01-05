@@ -13,7 +13,7 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function TopNav({user, setUser,handleLogout, handleSearch, listings}) {
+function TopNav({ user, setUser, handleLogout, handleSearch, listings }) {
   const navigate = useNavigate();
 
   const Search = styled("div")(({ theme }) => ({
@@ -42,71 +42,75 @@ function TopNav({user, setUser,handleLogout, handleSearch, listings}) {
     justifyContent: "center",
   }));
 
-
-  function handleClick(){
-    navigate('/')
+  function handleClick() {
+    navigate("/");
   }
 
   return (
     <div>
-   <div>
-      <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            <h3 onClick={handleClick}>Final Project</h3>
-          </Typography>
-          <form>
-            <input 
-                placeholder="Search items"
-                // inputProps={{ "aria-label": "search" }}
-              onChange={handleSearch}
-            />
-    </form>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              {user.username ? <p>Welcome, {user.username}! |</p> : null}
-               
-              {user.username ? <Button id="logout-button" onClick={handleLogout}>
-               Logout
-             </Button> :
-               <><Link to="login"> <Button id="login-button">Login</Button></Link> 
-                <Link to="signup"> <Button id="signup-button">Signup</Button></Link> </> }
-                {user.username ? <Avatar
-                 src={user.picture}
-               /> : null}
-          </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </Box>
-        </Toolbar>
-      </AppBar>
-    </Box>
+      <div>
+        <Box sx={{ flexGrow: 1 }}>
+          <AppBar id="nav-box" position="static">
+            <Toolbar>
+              <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                sx={{ display: { xs: "none", sm: "block" } }}
+              >
+                <div id="title" onClick={handleClick}>
+                  Final Project
+                </div>
+              </Typography>
+              { user.username ?
+                <form id="search-field">
+                  <input
+                    placeholder=" 🔍 Search items"
+                    onChange={handleSearch}
+                  />
+                </form> : null
+              }
+              <Box sx={{ flexGrow: 1 }} />
+              <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                {user.username ? (
+                  <p id="welcome">| Welcome, {user.username} |</p>
+                ) : null}
 
-    </div>
-    <div>
-   
-    </div>
+                {user.username ? (
+                  <Button id="logout-button" onClick={handleLogout}>
+                    Logout
+                  </Button>
+                ) : (
+                  <>
+                    <Link to="login">
+                      {" "}
+                      <Button id="login-button">Login</Button>
+                    </Link>
+                    <Link to="signup">
+                      {" "}
+                      <Button id="signup-button">Signup</Button>
+                    </Link>{" "}
+                  </>
+                )}
+                {user.username ? <Avatar src={user.picture} /> : null}
+              </Box>
+              <Box sx={{ display: { xs: "flex", md: "none" } }}>
+                <IconButton
+                  size="large"
+                  aria-label="show more"
+                  aria-haspopup="true"
+                  color="inherit"
+                >
+                  <MoreIcon />
+                </IconButton>
+              </Box>
+            </Toolbar>
+          </AppBar>
+        </Box>
+      </div>
+      <div></div>
     </div>
   );
 }
 
 export default TopNav;
-
-
-
-
-
-
