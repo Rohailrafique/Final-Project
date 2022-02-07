@@ -23,14 +23,7 @@ function App() {
       .then((data) => setListings(data))
   }, [DOMUpdater])
 
-  // useEffect(() => {
-  //   if (location.pathname.includes("items")) {
-  //     fetch(`${location.pathname}`)
-  //       .then(res => res.json())
-  //       .then(data => setSearchedData(data))
-  //       // .then(console.log("new fetch "))
-  //   }
-  // }, [location.pathname, DOMUpdater])
+  
 
   useEffect(() => {
     fetch("/me")

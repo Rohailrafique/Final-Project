@@ -59,7 +59,7 @@ function TopNav({ user, setUser, handleLogout, handleSearch, listings }) {
                 sx={{ display: { xs: "none", sm: "block" } }}
               >
                 <div id="title" onClick={handleClick}>
-                  Final Project
+                 Kapray
                 </div>
               </Typography>
               { user.username ?
